@@ -54,6 +54,7 @@ public class App {
         String zkStr = args[0];
         YarnConfiguration yarnConfiguration = new YarnConfiguration();
         yarnConfiguration.addResource(new Path(App.class.getClassLoader().getResource("yarn-site.xml").getPath()));
+        yarnConfiguration.addResource(new Path(App.class.getClassLoader().getResource("core-site.xml").getPath()));
         final TwillRunnerService twillRunner = new YarnTwillRunnerService(yarnConfiguration, zkStr);
         twillRunner.start();
 
