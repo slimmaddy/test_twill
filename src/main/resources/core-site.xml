@@ -1,4 +1,4 @@
-  <configuration  xmlns:xi="http://www.w3.org/2001/XInclude">
+  <configuration>
     
     <property>
       <name>fs.azure.user.agent.prefix</name>
@@ -7,7 +7,7 @@
     
     <property>
       <name>fs.defaultFS</name>
-      <value>hdfs://AdoptHadoop</value>
+      <value>hdfs://adopt.hadoop133:8020</value>
       <final>true</final>
     </property>
     
