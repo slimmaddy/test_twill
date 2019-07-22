@@ -9,6 +9,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.Futures;
+import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.yarn.conf.YarnConfiguration;
 import org.apache.twill.api.AbstractTwillRunnable;
 import org.apache.twill.api.ClassAcceptor;
@@ -52,6 +53,7 @@ public class App {
 
         String zkStr = args[0];
         YarnConfiguration yarnConfiguration = new YarnConfiguration();
+        yarnConfiguration.addResource(new Path(App.class.getClassLoader().getResource("yarn-site.xml").getPath()));
         final TwillRunnerService twillRunner = new YarnTwillRunnerService(yarnConfiguration, zkStr);
         twillRunner.start();
 
